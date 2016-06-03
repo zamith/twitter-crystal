@@ -13,7 +13,7 @@ module Twitter
       Host = "api.twitter.com"
       property :access_token, :access_token_secret, :consumer_key, :consumer_secret, :user_agent
 
-      def initialize(@consumer_key : String, @consumer_secret : String, @access_token : String, @access_token_secret : String, @user_agent = nil : Nil | String)
+      def initialize(@consumer_key : String, @consumer_secret : String, @access_token : String, @access_token_secret : String, @user_agent : Nil | String = nil)
         @user_agent ||= "CrystalTwitterClient/#{Twitter::Version.to_s}"
         consumer = OAuth::Consumer.new(Host, consumer_key, consumer_secret)
         access_token = OAuth::AccessToken.new(access_token, access_token_secret)
